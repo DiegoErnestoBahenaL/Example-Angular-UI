@@ -1,0 +1,42 @@
+<div class="container-fluid mt-5">
+            
+
+    <div class="navbar float-end">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Buscar" [formControl]="searchControl">
+            <button class="btn btn-outline-success" (click)="search()">Buscar</button>
+          </form>
+        </div>
+    </div>
+          
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Título</th>
+                            <th>Descripción</th>
+                            <th>Autor</th>
+                            <th>Marca</th>
+                            <th>Precio</th>
+                            <th>Librería</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{book?.id}}</td>
+                            <td>{{book?.title}}</td>
+                            <td>{{book?.description}}</td>
+                            <td>{{book?.author}}</td>
+                            <td>{{book?.brand}}</td>
+                            <td>${{book?.price}}</td>
+                            <td>{{setLibraryName(book?.libraryId, this.libraries)}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+    <div *ngIf="notFound" class="alert alert-danger" role="alert">
+       Librería no encontrada
+    </div>
+</div>
