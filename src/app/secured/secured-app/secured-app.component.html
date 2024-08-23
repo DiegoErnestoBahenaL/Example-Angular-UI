@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+    <!-- Navbar -->
+    <nav class="p-1 bg-dark text-white">
+
+        <div class="float-right mb-5">
+            <button class="btn btn-outline-danger " (click)="logout()" type="button">
+                Cerrar Sesión
+              </button>
+        </div>
+        <div class="d-flex flex-row justify-content-center mb-2">
+            <h1><a class="navbar-brand" [routerLink]="['/secured/home']">Task Management System</a></h1>
+
+            
+        </div>
+        <div class="d-flex flex-row justify-content-center gap-5">
+        
+            <div *ngIf="adminRights()" class="dropdown nav-item">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuarios
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" [routerLink]="['user/new']">Registrar</a></li>
+                    <li><a class="dropdown-item" [routerLink]="['user']">Listar</a></li>
+                </ul>
+            </div>
+            <div class="dropdown nav-item">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tareas
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" [routerLink]="['task/new']">Registrar</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['task']">Listar</a></li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </nav>
+    <!-- /Navbar -->   
+    
+    <!--This is where the components render-->
+    <router-outlet></router-outlet>
+
+ 
+
+</div>

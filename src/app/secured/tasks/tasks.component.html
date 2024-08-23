@@ -1,0 +1,37 @@
+<div class="container-fluid mt-5">
+    <div class="d-flex flex-row justify-content-center">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Estado</th>
+                    <th *ngIf="isAdmin">Id Usuario</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks">
+                    <td>{{task.name}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.startDate}}</td>
+                    <td>{{task.endDate}}</td>
+                    <td>{{task.state}}</td>
+                    <td *ngIf="isAdmin()">{{task.userId}}</td>
+                    <td>
+                        <button class="btn btn-outline-primary mr-2" type="button">
+                            Editar
+                        </button>
+                        <button (click)="delete(task.id)" class="btn btn-outline-danger" type="button">
+                            Eliminar
+                        </button>
+                      
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

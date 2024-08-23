@@ -7,4 +7,6 @@ export class Core {
             .set("Content-Type", "application/json");
         return headers;
     }
+
+    public static get securedHomePath():any[] { return ['/secured/home']; }
 } 

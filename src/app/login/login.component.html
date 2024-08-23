@@ -1,0 +1,55 @@
+    <div class="login-box">
+      <div class="login-logo">
+        <a [routerLink]="['/']"><b>Task Manager</b></a>
+      </div>
+      <div id="showUnkownErrorId" class="alert alert-danger" role="alert" *ngIf="showUnknownError">
+        Ha ocurrido un error, favor de contactar al administrador
+      </div>
+      <div id="showBadLoginId" class="alert alert-danger" role="alert" *ngIf="showBadLogin">
+        Correo y/o contraseña son incorrectos
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Iniciar sesión</p>
+          <form [formGroup]="loginForm" (keyup.enter)="loginButtonClick()">
+            <div class="input-group mb-3">
+              <input type="email" id="usernameId" class="form-control" [class.is-invalid]="showUsernameControlErrors" placeholder="Correo" [formControlName]="USERNAME_CONTROL"
+              [attr.disabled]="disableLoginForm ? '' : null" autofocus>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fa fa-envelope"></span>
+                </div>
+              </div>
+              <div class="error invalid-feedback" *ngIf="showUsernameControlErrors">
+                Favor de ingresar su correo
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" id="passwordId" class="form-control" [class.is-invalid]="showPasswordControlErrors" placeholder="Contraseña" [formControlName]="PASSWORD_CONTROL"
+              [attr.disabled]="disableLoginForm ? '' : null">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fa fa-lock"></span>
+                </div>
+              </div>
+              <div class="error invalid-feedback" *ngIf="showPasswordControlErrors">
+                Favor de ingresar su contraseña
+              </div>
+            </div>
+            <div class="row">
+              <!-- /.col -->
+              <div class="col-4">
+                <button id="loginBtnId" type="button" class="btn btn-primary btn-block" (click)="loginButtonClick()" [attr.disabled]="!isLoginButtonEnabled ? '' : null">
+                  <span *ngIf="isLoginButtonEnabled">Ingresar</span>
+                  <span *ngIf="!isLoginButtonEnabled" class="fa fa-spinner fa-spin"></span>
+                </button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+    <!-- /.login-box -->

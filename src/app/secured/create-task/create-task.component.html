@@ -1,0 +1,60 @@
+<div class="container-fluid mt-5">
+    <div class="d-flex flex-row justify-content-center">
+        <div class="card w-50">
+            <h5 class="card-header text-center">Nueva Tarea</h5>
+            <div class="card-body">
+                <form [formGroup]="formGroup">
+
+                    <div class="mb-3">
+                      <label for="title" class="form-label" >Nombre</label>
+                      <input type="text" class="form-control" id="title" [formControl]="controls.NameControl">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea name="descriptionTextArea" id="description" cols="30" rows="4" class="form-control" [formControl]="controls.DescriptionControl"></textarea>
+                    </div>
+                    
+                    
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Fecha de Inicio</label>
+                        <input type="date" id="startDateId" class="form-control"  placeholder="" [formControl]="controls.StartDateControl">
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <!-- text input -->
+                      <div class="form-group">
+                        <label>Fecha de fin</label>
+                        <input type="date"  id="endDateId" class="form-control" placeholder="" [formControl]="controls.EndDateControl">
+                      </div>
+                    </div>
+                  </div>
+              
+
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Estado</label>
+                        <select class="form-control" name="cities" id="city" [formControl]="controls.StateControl">
+                            <option selected value="1">Por Hacer</option>
+                            <option value="2">En Progreso</option>
+                            <option value="3">Bloqueado</option>
+                            <option value="4">Completado</option>
+                        </select>
+                    </div> 
+                    <button (click)="submit()" class="btn btn-primary float-end">Guardar</button>
+                </form>
+
+                <div *ngIf="showError" class="alert alert-danger" role="alert">
+                    Sucedió un error
+                </div>
+            </div>
+          </div>
+        
+
+    </div>
+</div>
