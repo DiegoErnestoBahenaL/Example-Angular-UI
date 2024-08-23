@@ -20,7 +20,7 @@
                     <td>{{user.email}}</td>
                     <td>{{user.roles}}</td>
                     <td>
-                        <button class="btn btn-outline-primary mr-2" type="button">
+                        <button (click)="goToEdit(user.id)" class="btn btn-outline-primary mr-2" type="button">
                             Editar
                         </button>
                         <button (click)="delete(user.id)" class="btn btn-outline-danger" type="button">

@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TaskViewmodel } from 'src/core/models/task-viewmodel';
 import { UserViewModel } from 'src/core/models/user-viewmodel';
@@ -18,7 +19,7 @@ export class TasksComponent implements OnInit, OnDestroy {
 
   public tasks : TaskViewmodel[] = [];
 
-    constructor(private tasksEndpoints: TasksEndpointsService, private session : SessionService){
+    constructor(private tasksEndpoints: TasksEndpointsService, private session : SessionService, private router: Router){
       this.userLoggedIn =session.getUser();
     }
 
@@ -59,6 +60,10 @@ export class TasksComponent implements OnInit, OnDestroy {
 
 
       }))
+    }
+
+    public goToEdit(id: number){
+      this.router.navigate(['/secured/task/'+id]);
     }
 
     public isAdmin():boolean {

@@ -22,7 +22,7 @@
                     <td>{{task.state}}</td>
                     <td *ngIf="isAdmin()">{{task.userId}}</td>
                     <td>
-                        <button class="btn btn-outline-primary mr-2" type="button">
+                        <button (click)="goToEdit(task.id)" class="btn btn-outline-primary mr-2" type="button">
                             Editar
                         </button>
                         <button (click)="delete(task.id)" class="btn btn-outline-danger" type="button">

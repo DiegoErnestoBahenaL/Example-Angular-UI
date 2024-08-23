@@ -1,1 +1,49 @@
-<p>update-user works!</p>
+<div class="container-fluid mt-5">
+    <div class="d-flex flex-row justify-content-center">
+        <div class="card w-50">
+            <h5 class="card-header text-center">Editar Usuario</h5>
+            <div class="card-body">
+                <form [formGroup]="formGroup">
+
+                    <div class="mb-3">
+                      <label for="name" class="form-label" >Nombre</label>
+                      <input type="text" class="form-control" id="name" [formControl]="controls.NameControl">
+                    </div>
+        
+                    <div class="mb-3">
+                      <label for="telephoneNumber" class="form-label" >Apellido</label>
+                      <input type="text" class="form-control" id="telephoneNumber" [formControl]="controls.LastNameControl">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="telephoneNumber" class="form-label" >Email</label>
+                        <input type="text" class="form-control" id="telephoneNumber" [formControl]="controls.EmailControl">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label" >Contraseña</label>
+                        <input id="newPasswordInputId" autocomplete="new-password" type="password" class="form-control" [formControl] ="controls.PasswordControl">
+
+                      </div>
+
+                    <div class="mb-3">
+
+                        <label for="city" class="form-label">Rol</label>
+                        <select class="form-control" name="cities" id="city" [formControl]="controls.RoleControl">
+                            <option value="CommonUser">CommonUser</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+
+
+                    
+                    <button (click)="submit()" class="btn btn-primary float-end">Guardar</button>
+                </form>
+                <div *ngIf="showError" class="alert alert-danger" role="alert">
+                    Sucedió un error
+                </div>
+            </div>
+          </div>
+    </div>
+</div>

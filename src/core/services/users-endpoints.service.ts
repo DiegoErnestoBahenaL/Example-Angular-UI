@@ -40,9 +40,9 @@ export class UsersEndpointsService {
     return this.http.post(url, model, {headers: headers});
   }
 
-  public putUser (model: UserModel) : Observable<any> {
+  public putUser (idUser: number, model: UserModel) : Observable<any> {
     
-    const url: string = Constants.apiHost + 'user';
+    const url: string = Constants.apiHost + 'user/' +idUser;
     const headers = Core.createHttpHeadersJson();
 
     return this.http.put(url, model, {headers: headers});

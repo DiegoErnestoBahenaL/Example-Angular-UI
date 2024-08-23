@@ -7,6 +7,8 @@ import { UsersComponent } from './users/users.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateTaskComponent } from './create-task/create-task.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 @NgModule({
     declarations: [],
@@ -18,8 +20,10 @@ import { CreateTaskComponent } from './create-task/create-task.component';
             {path: 'home', component: HomeComponent},
             {path: 'user', component: UsersComponent},
             {path: 'user/new', component: CreateUserComponent},
+            {path: 'user/:id', component: UpdateUserComponent},
             {path: 'task', component: TasksComponent},
             {path: 'task/new', component: CreateTaskComponent},
+            {path: 'task/:id', component: UpdateTaskComponent},
             {path: '**', component: NotFoundComponent},
           ]
         }]

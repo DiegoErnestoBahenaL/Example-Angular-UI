@@ -46,9 +46,9 @@ export class TasksEndpointsService {
     return this.http.post(url, model, {headers: headers});
   }
 
-  public putTask (model: TaskModel) : Observable<any> {
+  public putTask (idTask: number, model: TaskModel) : Observable<any> {
     
-    const url: string = Constants.apiHost + 'task';
+    const url: string = Constants.apiHost + 'task/' + idTask;
     const headers = Core.createHttpHeadersJson();
 
     return this.http.put(url, model, {headers: headers});
